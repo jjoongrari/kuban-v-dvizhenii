@@ -1,36 +1,32 @@
 # Краснодар в движении
 
-Интерактивная карта транспортных поездок в Краснодарском крае за 2025 год. Автобус проходит через 30 населённых пунктов с данными. Линия на карте показывает порядок просмотра.
+Интерактивная карта транспортных поездок в Краснодарском крае за 2025 год. Маршрут проходит через 30 населённых пунктов с данными. Линия на карте показывает порядок просмотра.
 
-Карта, данные и подложка встроены в `index.html`. Для локального просмотра откройте файл в браузере. Для GitHub Pages сборка не нужна.
+Для локального просмотра откройте `index.html` в браузере. Карта и данные встроены в этот файл.
 
-## Первый запуск на GitHub Pages
+## Публикация на GitHub Pages
 
-1. Создайте пустой публичный репозиторий на GitHub без README, лицензии и `.gitignore`.
-2. Распакуйте архив и откройте Git Bash в папке `kuban-v-dvizhenii`, где лежит `index.html`.
-3. Замените `USERNAME` и `REPOSITORY` в URL на имя своего аккаунта и репозитория. Выполните команды.
+Распакуйте весь архив и откройте PowerShell в папке `kuban-v-dvizhenii`. В архиве уже есть локальный репозиторий `.git`, ветка `main` и настроенный `origin`, который указывает на `jjoongrari/kuban-v-dvizhenii`.
 
-```bash
-git init -b main
-git add index.html .nojekyll README.md
-git commit -m "Add Krasnodar transport map"
-git remote add origin https://github.com/USERNAME/REPOSITORY.git
-git push -u origin main
-```
-
-4. Откройте настройки репозитория. В **Settings → Pages → Build and deployment** выберите **Deploy from a branch**, ветку **main** и папку **/ (root)**. Нажмите **Save**.
-5. После публикации откройте ссылку на сайт в **Settings → Pages**.
-
-## Обновление существующего сайта
-
-В локальной копии репозитория замените `index.html` в папке, из которой публикуется сайт. Если в этой папке ещё нет `.nojekyll`, скопируйте его из архива. Для сайта с источником `/docs` папкой публикации будет `docs`.
-
-Выполните команды из папки публикации, находясь на ветке, настроенной в Pages.
-
-```bash
-git add index.html .nojekyll
-git commit -m "Update Krasnodar transport map"
+```powershell
+git status
 git push
 ```
 
-[Документация GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+При запросе авторизации войдите в свой аккаунт GitHub.
+
+В настройках репозитория откройте **Settings → Pages**. Источник публикации — **Deploy from a branch**, ветка **main**, папка **/ (root)**. Если этот источник уже сохранён, следите за запуском **pages build and deployment** во вкладке **Actions**.
+
+- [GitHub Pages](https://github.com/jjoongrari/kuban-v-dvizhenii/settings/pages)
+- [Статус публикации](https://github.com/jjoongrari/kuban-v-dvizhenii/actions)
+- [Карта после публикации](https://jjoongrari.github.io/kuban-v-dvizhenii/)
+
+## Дальнейшие обновления
+
+После изменений карты или текста выполните из этой же папки:
+
+```powershell
+git add index.html README.md
+git commit -m "Update Krasnodar transport map"
+git push
+```
